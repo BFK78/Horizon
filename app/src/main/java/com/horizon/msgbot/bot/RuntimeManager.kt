@@ -10,5 +10,5 @@ import com.caoccao.javet.interop.V8Host
 import com.caoccao.javet.interop.V8Runtime
 
 internal object RuntimeManager {
-    val runtimes: HashMap<String, V8Runtime> = hashMapOf()
+    val runtimes: HashMap<Number, V8Runtime> = hashMapOf()
 }

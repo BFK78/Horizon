@@ -10,6 +10,11 @@ import android.app.Notification
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.widget.Toast
+import com.caoccao.javet.interop.V8Host
+import com.caoccao.javet.interop.V8Runtime
+import com.caoccao.javet.values.reference.V8ValueArray
+import com.caoccao.javet.values.reference.V8ValueFunction
+import com.caoccao.javet.values.reference.V8ValueObject
 import com.horizon.msgbot.setting.Constants
 import java.util.*
 
@@ -33,7 +38,12 @@ class MessageListenerService : NotificationListenerService() {
                     action.title.toString().lowercase(Locale.getDefault()).contains("reply") ||
                     action.title.toString().lowercase(Locale.getDefault()).contains("답장")
                 ) {
-                    val data = sbn.notification.extras
+                    val runtime: V8Runtime = V8Host.getNodeInstance().createV8Runtime();
+//                    val obj: V8ValueObject = runtime.createV8ValueObject();
+//                    obj.se
+//                    val arr: V8ValueArray = runtime.createV8ValueArray();
+//                    arr.push
+//                    runtime.globalObject.get<V8ValueFunction>("onMessage").callVoid(null, )
                 }
             }
         } catch (e: Exception) {
