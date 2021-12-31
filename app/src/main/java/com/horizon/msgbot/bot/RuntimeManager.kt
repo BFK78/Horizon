@@ -11,4 +11,9 @@ import com.caoccao.javet.interop.V8Runtime
 
 internal object RuntimeManager {
     val runtimes: HashMap<Number, V8Runtime> = hashMapOf()
+
+    fun addRuntime() {
+        var size: Int = runtimes.count()
+        runtimes[++size] = V8Host.getNodeInstance().createV8Runtime()
+    }
 }
